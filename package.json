@@ -8,7 +8,10 @@
   },
   "scripts": {
     "test": "mocha tests",
-    "start": "node index.js"
+    "start": "node index.js",
+    "coverage": "nyc npm run test",
+    "lint": "eslint .",
+    "prepare": "husky install"
   },
   "keywords": [
     "Xendit"
@@ -22,7 +25,12 @@
     "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-google": "^0.14.0",
+    "husky": "^8.0.1",
     "mocha": "^9.2.1",
-    "supertest": "^6.2.2"
+    "nyc": "^15.1.0",
+    "supertest": "^6.2.2",
+    "winston": "^3.8.1"
   }
 }
