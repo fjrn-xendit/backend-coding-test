@@ -5,12 +5,14 @@ Below are the exercise results achieved
 ### Documentation Result
 1. Utilized swagger to generate documentation, see documentation [here](http://localhost:8010/api-docs/)
 
-### Implement tooling
+### Implement tooling Result
 Implemented these tools:
-1. `ESLint` for linting
-2. `nyc` for code coverage
-3. `husky` for pre commit hook
-4. `winston` for logging
+- `ESLint` for linting
+  - integrated to `npm test`
+- `nyc` for code coverage
+- `husky` for pre commit hook
+  - run `npm test` before committing
+- `winston` for logging
 
 # Xendit Coding Exercise
 
