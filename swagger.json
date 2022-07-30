@@ -1,0 +1,589 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Xendit Coding Exercise",
+    "description": "Documentation for Xendit Coding Exercise made by Fajrin",
+    "contact": {}
+  },
+  "host": "localhost:8010",
+  "basePath": "/",
+  "securityDefinitions": {},
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "health-check",
+        "tags": [
+          "health"
+        ],
+        "operationId": "health-check",
+        "deprecated": false,
+        "produces": [
+          "text/html; charset=utf-8"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "examples": {
+              "text/html; charset=utf-8": "Healthy"
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "7"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"7-gOoVbhuD9JPWhGROU6E5wo72avw\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sat, 30 Jul 2022 09:04:01 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rides": {
+      "post": {
+        "summary": "add-rides",
+        "tags": [
+          "rides"
+        ],
+        "operationId": "add-rides",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "name": "Body",
+            "in": "body",
+            "required": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/add-rides-request"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Successaddingride"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "rideID": 1,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "agus",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-30 09:04:25"
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "166"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"a6-SouZPRuCJSR7YSjcbbyGIp5BTyc\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sat, 30 Jul 2022 09:04:25 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "get-rides",
+        "tags": [
+          "rides"
+        ],
+        "operationId": "get-rides",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Successgettingride"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "rideID": 1,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "agus",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-30 09:04:25"
+                },
+                {
+                  "rideID": 2,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "yatno",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-30 09:04:52"
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "332"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"14c-jsVCZkkyCHir+kqLeOdIgmLPW48\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sat, 30 Jul 2022 09:04:55 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rides/{id}": {
+      "get": {
+        "summary": "get-ride",
+        "tags": [
+          "rides"
+        ],
+        "operationId": "get-ride",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=utf-8"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Successgettingrideinfo"
+              }
+            },
+            "examples": {
+              "application/json; charset=utf-8": [
+                {
+                  "rideID": 1,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "agus",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-30 09:04:25"
+                }
+              ]
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "166"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"a6-SouZPRuCJSR7YSjcbbyGIp5BTyc\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sat, 30 Jul 2022 09:10:44 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "add-rides-request": {
+      "title": "add-rides-request",
+      "example": {
+        "start_lat": 10,
+        "start_long": 10,
+        "end_lat": 10,
+        "end_long": 10,
+        "rider_name": "fajrin",
+        "driver_name": "yatno",
+        "driver_vehicle": "supraX"
+      },
+      "type": "object",
+      "properties": {
+        "start_lat": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "start_long": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end_lat": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "end_long": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rider_name": {
+          "type": "string"
+        },
+        "driver_name": {
+          "type": "string"
+        },
+        "driver_vehicle": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "start_lat",
+        "start_long",
+        "end_lat",
+        "end_long",
+        "rider_name",
+        "driver_name",
+        "driver_vehicle"
+      ]
+    },
+    "Successaddingride": {
+      "title": "Successaddingride",
+      "example": {
+        "rideID": 1,
+        "startLat": 10,
+        "startLong": 10,
+        "endLat": 10,
+        "endLong": 10,
+        "riderName": "fajrin",
+        "driverName": "agus",
+        "driverVehicle": "supraX",
+        "created": "2022-07-30 09:04:25"
+      },
+      "type": "object",
+      "properties": {
+        "rideID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startLat": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startLong": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "endLat": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "endLong": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "riderName": {
+          "type": "string"
+        },
+        "driverName": {
+          "type": "string"
+        },
+        "driverVehicle": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rideID",
+        "startLat",
+        "startLong",
+        "endLat",
+        "endLong",
+        "riderName",
+        "driverName",
+        "driverVehicle",
+        "created"
+      ]
+    },
+    "Validationerror": {
+      "title": "Validationerror",
+      "example": {
+        "error_code": "VALIDATION_ERROR",
+        "message": "Rider name must be a non empty string"
+      },
+      "type": "object",
+      "properties": {
+        "error_code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "error_code",
+        "message"
+      ]
+    },
+    "Successgettingride": {
+      "title": "Successgettingride",
+      "example": {
+        "rideID": 1,
+        "startLat": 10,
+        "startLong": 10,
+        "endLat": 10,
+        "endLong": 10,
+        "riderName": "fajrin",
+        "driverName": "agus",
+        "driverVehicle": "supraX",
+        "created": "2022-07-30 09:04:25"
+      },
+      "type": "object",
+      "properties": {
+        "rideID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startLat": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startLong": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "endLat": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "endLong": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "riderName": {
+          "type": "string"
+        },
+        "driverName": {
+          "type": "string"
+        },
+        "driverVehicle": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rideID",
+        "startLat",
+        "startLong",
+        "endLat",
+        "endLong",
+        "riderName",
+        "driverName",
+        "driverVehicle",
+        "created"
+      ]
+    },
+    "Ridesnotfound": {
+      "title": "Ridesnotfound",
+      "example": {
+        "error_code": "RIDES_NOT_FOUND_ERROR",
+        "message": "Could not find any rides"
+      },
+      "type": "object",
+      "properties": {
+        "error_code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "error_code",
+        "message"
+      ]
+    },
+    "Successgettingrideinfo": {
+      "title": "Successgettingrideinfo",
+      "example": {
+        "rideID": 1,
+        "startLat": 10,
+        "startLong": 10,
+        "endLat": 10,
+        "endLong": 10,
+        "riderName": "fajrin",
+        "driverName": "agus",
+        "driverVehicle": "supraX",
+        "created": "2022-07-30 09:04:25"
+      },
+      "type": "object",
+      "properties": {
+        "rideID": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startLat": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "startLong": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "endLat": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "endLong": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "riderName": {
+          "type": "string"
+        },
+        "driverName": {
+          "type": "string"
+        },
+        "driverVehicle": {
+          "type": "string"
+        },
+        "created": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rideID",
+        "startLat",
+        "startLong",
+        "endLat",
+        "endLong",
+        "riderName",
+        "driverName",
+        "driverVehicle",
+        "created"
+      ]
+    },
+    "Failedgettingrideinfo": {
+      "title": "Failedgettingrideinfo",
+      "example": {
+        "error_code": "RIDES_NOT_FOUND_ERROR",
+        "message": "Could not find any rides"
+      },
+      "type": "object",
+      "properties": {
+        "error_code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "error_code",
+        "message"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "health",
+      "description": "Health check"
+    },
+    {
+      "name": "rides",
+      "description": "For adding and getting ride information"
+    }
+  ]
+}

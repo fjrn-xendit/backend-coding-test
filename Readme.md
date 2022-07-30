@@ -1,6 +1,11 @@
 # Xendit Coding Exercise
 
-The goal of these exercises are to assess your proficiency in software engineering that is related to the daily work that we do at Xendit. Please follow the instructions below to complete the assessment.
+## Exercise Result
+
+Below are the exercise results achieved
+
+### Documentation Result
+1. Utilized swagger to generate documentation, see documentation [here](http://localhost:8010/api-docs/)
 
 ## Setup
 
@@ -12,6 +17,8 @@ The goal of these exercises are to assess your proficiency in software engineeri
 6. Hit the server to test health `curl localhost:8010/health` and expect a `200` response 
 
 ## Tasks
+
+The goal of these exercises are to assess your proficiency in software engineering that is related to the daily work that we do at Xendit. Please follow the instructions below to complete the assessment.
 
 Below will be your set of tasks to accomplish. Please work on each of these tasks in order. Success criteria will be defined clearly for each task
 
