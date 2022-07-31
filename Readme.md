@@ -1,5 +1,8 @@
 # Exercise Result
 
+![Build](https://github.com/fjrn-xendit/backend-coding-test/actions/workflows/build.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/fjrn-xendit/backend-coding-test/badge.svg?branch=master)](https://coveralls.io/github/fjrn-xendit/backend-coding-test?branch=master)
+
 Below are the exercise results achieved
 
 ### Documentation Result
@@ -10,6 +13,7 @@ Implemented these tools:
 - `ESLint` for linting
   - integrated to `npm test`
 - `nyc` for code coverage
+  - build and test coverage integrated with github actions and coveralls.io
 - `husky` for pre commit hook
   - run `npm test` before committing
 - `winston` for logging
