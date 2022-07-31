@@ -2,14 +2,14 @@
   "name": "backend-coding-test",
   "version": "1.1.0",
   "description": "A coding assessment for Xendit backend interviews",
-  "main": "index.js",
+  "main": "./server/index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "nyc mocha tests && npm run lint",
-    "start": "node index.js",
-    "coverage": "nyc mocha tests && nyc report --reporter=lcov",
+    "test": "nyc mocha tests --exit && npm run lint",
+    "start": "node ./server/index.js",
+    "coverage": "nyc mocha tests --exit && nyc report --reporter=lcov",
     "lint": "eslint .",
     "prepare": "husky install"
   },
@@ -31,6 +31,7 @@
     "husky": "^8.0.1",
     "mocha": "^9.2.1",
     "nyc": "^15.1.0",
+    "prettier": "^2.7.1",
     "supertest": "^6.2.2",
     "winston": "^3.8.1"
   }
