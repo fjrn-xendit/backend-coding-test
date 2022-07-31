@@ -136,6 +136,44 @@
                 "default": "keep-alive"
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Validationerror1"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "error_code": "VALIDATION_ERROR",
+                "message": "Rider name must be a non empty string"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "83"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"53-SPaRQ3Wampn2y5VxRj+9BeABEh4\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 31 Jul 2022 08:59:22 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
           }
         }
       },
@@ -149,7 +187,16 @@
         "produces": [
           "application/json; charset=utf-8"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "type": "integer",
+            "format": "int32",
+            "description": ""
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -169,9 +216,9 @@
                   "endLat": 10,
                   "endLong": 10,
                   "riderName": "fajrin",
-                  "driverName": "agus",
+                  "driverName": "yatno",
                   "driverVehicle": "supraX",
-                  "created": "2022-07-30 09:04:25"
+                  "created": "2022-07-31 08:57:40"
                 },
                 {
                   "rideID": 2,
@@ -182,7 +229,95 @@
                   "riderName": "fajrin",
                   "driverName": "yatno",
                   "driverVehicle": "supraX",
-                  "created": "2022-07-30 09:04:52"
+                  "created": "2022-07-31 08:57:50"
+                },
+                {
+                  "rideID": 3,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "yatno",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-31 08:57:51"
+                },
+                {
+                  "rideID": 4,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "yatno",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-31 08:57:51"
+                },
+                {
+                  "rideID": 5,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "yatno",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-31 08:57:51"
+                },
+                {
+                  "rideID": 6,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "yatno",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-31 08:57:52"
+                },
+                {
+                  "rideID": 7,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "yatno",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-31 08:57:52"
+                },
+                {
+                  "rideID": 8,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "yatno",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-31 08:57:53"
+                },
+                {
+                  "rideID": 9,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "yatno",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-31 08:57:54"
+                },
+                {
+                  "rideID": 10,
+                  "startLat": 10,
+                  "startLong": 10,
+                  "endLat": 10,
+                  "endLong": 10,
+                  "riderName": "fajrin",
+                  "driverName": "yatno",
+                  "driverVehicle": "supraX",
+                  "created": "2022-07-31 08:57:55"
                 }
               ]
             },
@@ -193,19 +328,99 @@
               },
               "Content-Length": {
                 "type": "string",
-                "default": "332"
+                "default": "1662"
               },
               "ETag": {
                 "type": "string",
-                "default": "W/\"14c-jsVCZkkyCHir+kqLeOdIgmLPW48\""
+                "default": "W/\"67e-0Ui06FYoDPTgulQPq7O3hkWCius\""
               },
               "Date": {
                 "type": "string",
-                "default": "Sat, 30 Jul 2022 09:04:55 GMT"
+                "default": "Sun, 31 Jul 2022 08:58:11 GMT"
               },
               "Connection": {
                 "type": "string",
                 "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/ridesnotfound1"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "error_code": "RIDES_NOT_FOUND_ERROR",
+                "message": "Could not find any rides"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "75"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"4b-HrjTASMJt0UOBPrWJ1beYRIHabg\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 31 Jul 2022 08:57:18 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "$ref": "#/definitions/Invalidpageparam1"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "error_code": "VALIDATION_ERROR",
+                "message": "Invalid page number"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "65"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"41-+JkF8c3v1cl74oIbgNIYrv0jAIY\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 31 Jul 2022 08:58:34 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
               }
             }
           }
@@ -280,6 +495,44 @@
                 "default": "keep-alive"
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "$ref": "#/definitions/Failedgettingrideinfo1"
+            },
+            "examples": {
+              "application/json; charset=utf-8": {
+                "error_code": "RIDES_NOT_FOUND_ERROR",
+                "message": "Could not find any rides"
+              }
+            },
+            "headers": {
+              "X-Powered-By": {
+                "type": "string",
+                "default": "Express"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "75"
+              },
+              "ETag": {
+                "type": "string",
+                "default": "W/\"4b-HrjTASMJt0UOBPrWJ1beYRIHabg\""
+              },
+              "Date": {
+                "type": "string",
+                "default": "Sun, 31 Jul 2022 08:55:49 GMT"
+              },
+              "Connection": {
+                "type": "string",
+                "default": "keep-alive"
+              },
+              "Keep-Alive": {
+                "type": "string",
+                "default": "timeout=5"
+              }
+            }
           }
         }
       }
@@ -294,7 +547,7 @@
         "end_lat": 10,
         "end_long": 10,
         "rider_name": "fajrin",
-        "driver_name": "yatno",
+        "driver_name": "",
         "driver_vehicle": "supraX"
       },
       "type": "object",
@@ -395,8 +648,8 @@
         "created"
       ]
     },
-    "Validationerror": {
-      "title": "Validationerror",
+    "Validationerror1": {
+      "title": "Validationerror1",
       "example": {
         "error_code": "VALIDATION_ERROR",
         "message": "Rider name must be a non empty string"
@@ -424,9 +677,9 @@
         "endLat": 10,
         "endLong": 10,
         "riderName": "fajrin",
-        "driverName": "agus",
+        "driverName": "yatno",
         "driverVehicle": "supraX",
-        "created": "2022-07-30 09:04:25"
+        "created": "2022-07-31 08:57:40"
       },
       "type": "object",
       "properties": {
@@ -475,11 +728,31 @@
         "created"
       ]
     },
-    "Ridesnotfound": {
-      "title": "Ridesnotfound",
+    "ridesnotfound1": {
+      "title": "ridesnotfound1",
       "example": {
         "error_code": "RIDES_NOT_FOUND_ERROR",
         "message": "Could not find any rides"
+      },
+      "type": "object",
+      "properties": {
+        "error_code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "error_code",
+        "message"
+      ]
+    },
+    "Invalidpageparam1": {
+      "title": "Invalidpageparam1",
+      "example": {
+        "error_code": "VALIDATION_ERROR",
+        "message": "Invalid page number"
       },
       "type": "object",
       "properties": {
@@ -555,8 +828,8 @@
         "created"
       ]
     },
-    "Failedgettingrideinfo": {
-      "title": "Failedgettingrideinfo",
+    "Failedgettingrideinfo1": {
+      "title": "Failedgettingrideinfo1",
       "example": {
         "error_code": "RIDES_NOT_FOUND_ERROR",
         "message": "Could not find any rides"
