@@ -21,6 +21,16 @@ Implemented these tools:
   - run `npm test` before committing
 - `winston` for logging
 
+### Refactoring Result
+
+- Convert callback style code to use `async/await`
+- Four layer of structure
+  - `router` as the router for endpoints
+  - `middleware`, example of usage as a request validator
+  - `service` for business logic, being called by `router`
+  - `accessor` for external logic such as database or external service
+    - with this, it will be easier in the future if we want to change from SQLite to other RDBMS since all external logic is separated from business logic
+
 # Xendit Coding Exercise
 
 The goal of these exercises are to assess your proficiency in software engineering that is related to the daily work that we do at Xendit. Please follow the instructions below to complete the assessment.
