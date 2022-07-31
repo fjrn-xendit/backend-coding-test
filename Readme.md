@@ -1,6 +1,7 @@
 # Exercise Result
 
-![Build](https://github.com/fjrn-xendit/backend-coding-test/actions/workflows/git-build.yml/badge.svg)[![Coverage Status](https://coveralls.io/repos/github/fjrn-xendit/backend-coding-test/badge.svg?branch=master)](https://coveralls.io/github/fjrn-xendit/backend-coding-test?branch=master)
+![Build](https://github.com/fjrn-xendit/backend-coding-test/actions/workflows/build.yml/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/github/fjrn-xendit/backend-coding-test/badge.svg?branch=master)](https://coveralls.io/github/fjrn-xendit/backend-coding-test?branch=master)
 
 Below are the exercise results achieved
 
