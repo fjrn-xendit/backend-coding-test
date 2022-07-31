@@ -12,6 +12,7 @@ Implemented these tools:
 - `ESLint` for linting
   - integrated to `npm test`
 - `nyc` for code coverage
+  - build and test coverage integrated with github actions and coveralls.io
 - `husky` for pre commit hook
   - run `npm test` before committing
 - `winston` for logging
