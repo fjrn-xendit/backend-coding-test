@@ -77,8 +77,7 @@ module.exports = (db) => {
     const values = [req.body.start_lat, req.body.start_long,
       req.body.end_lat, req.body.end_long, req.body.rider_name,
       req.body.driver_name, req.body.driver_vehicle];
-
-    const result = db.run(`INSERT INTO Rides(startLat, startLong, endLat,
+    db.run(`INSERT INTO Rides(startLat, startLong, endLat,
         endLong, riderName, driverName, driverVehicle)
         VALUES (?, ?, ?, ?, ?, ?, ?)`, values, function(err) {
       if (err) {
@@ -90,7 +89,7 @@ module.exports = (db) => {
       }
 
       db.all('SELECT * FROM Rides WHERE rideID = ?',
-          result.lastID, function(err, rows) {
+          this.lastID, function(err, rows) {
             logger.error(`Error selecting ride: ${err}`);
             if (err) {
               return res.status(500).send({
@@ -105,7 +104,28 @@ module.exports = (db) => {
   });
 
   app.get('/rides', (req, res) => {
-    db.all('SELECT * FROM Rides', function(err, rows) {
+    const page = req.query.page || 1;
+    const pageSize = 10;
+
+    if (
+      isNaN(+page) ||
+      +page < 1
+    ) {
+      const error = {
+        error_code: 'VALIDATION_ERROR',
+        message: 'Invalid page number',
+      };
+      logger.warn(`Invalid page number ${page}`);
+      return res.status(400).send(error);
+    }
+
+    const offset = (+page - 1) * pageSize;
+
+    db.all(`SELECT * FROM Rides
+      ORDER BY rideID
+      ASC LIMIT ${pageSize}
+      OFFSET ${offset}`,
+    function(err, rows) {
       if (err) {
         logger.error(`Error selecting rides: ${err}`);
         return res.status(500).send({
