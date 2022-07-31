@@ -7,9 +7,9 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "npm run coverage && npm run lint",
+    "test": "nyc mocha tests && npm run lint",
     "start": "node index.js",
-    "coverage": "nyc mocha tests",
+    "coverage": "nyc mocha tests && nyc report --reporter=lcov",
     "lint": "eslint .",
     "prepare": "husky install"
   },
