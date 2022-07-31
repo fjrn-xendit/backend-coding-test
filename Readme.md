@@ -6,10 +6,13 @@
 Below are the exercise results achieved
 
 ### Documentation Result
+
 1. Utilized swagger to generate documentation, see documentation [here](http://localhost:8010/api-docs/)
 
 ### Implement tooling Result
+
 Implemented these tools:
+
 - `ESLint` for linting
   - integrated to `npm test`
 - `nyc` for code coverage
@@ -17,6 +20,16 @@ Implemented these tools:
 - `husky` for pre commit hook
   - run `npm test` before committing
 - `winston` for logging
+
+### Refactoring Result
+
+- Convert callback style code to use `async/await`
+- Four layer of structure
+  - `router` as the router for endpoints
+  - `middleware`, example of usage as a request validator
+  - `service` for business logic, being called by `router`
+  - `accessor` for external logic such as database or external service
+    - with this, it will be easier in the future if we want to change from SQLite to other RDBMS since all external logic is separated from business logic
 
 # Xendit Coding Exercise
 
@@ -29,7 +42,7 @@ The goal of these exercises are to assess your proficiency in software engineeri
 3. Run `npm install`
 4. Run `npm test`
 5. Run `npm start`
-6. Hit the server to test health `curl localhost:8010/health` and expect a `200` response 
+6. Hit the server to test health `curl localhost:8010/health` and expect a `200` response
 
 ## Tasks
 
@@ -45,7 +58,7 @@ Below will be your set of tasks to accomplish. Please work on each of these task
 ### Documentation
 
 Please deliver documentation of the server that clearly explains the goals of this project and clarifies the API request and response that is expected.
-Feel free to use any open source documentation tools such as OpenAPI / Swagger. 
+Feel free to use any open source documentation tools such as OpenAPI / Swagger.
 
 #### Success Criteria
 
@@ -64,10 +77,10 @@ Please implement the following tooling:
 #### Success Criteria
 
 1. Create a pull request against `master` of your fork with the new tooling and merge it
-    1. `eslint` should have an opinionated format
-    2. `nyc` should aim for test coverage of `80%` across lines, statements, and branches
-    3. `pre-push` should run the tests before allowing pushing using `git`
-    4. `winston` should be used to replace console logs and all errors should be logged as well. Logs should go to disk.
+   1. `eslint` should have an opinionated format
+   2. `nyc` should aim for test coverage of `80%` across lines, statements, and branches
+   3. `pre-push` should run the tests before allowing pushing using `git`
+   4. `winston` should be used to replace console logs and all errors should be logged as well. Logs should go to disk.
 2. Ensure that tooling is connected to `npm test`
 3. Ensure that tests covers possible positive and negative scenarios
 4. Create a separate pull request against `master` of your fork with the linter fixes and merge it
@@ -80,9 +93,9 @@ Please implement the following tooling:
 Please implement pagination to retrieve pages of the resource `rides`.
 
 1. Create a pull request against `master` with your changes to the `GET /rides` endpoint to support pagination including:
-    1. Code changes
-    2. Tests
-    3. Documentation
+   1. Code changes
+   2. Tests
+   3. Documentation
 2. Merge the pull request
 
 ### Refactoring
@@ -96,8 +109,8 @@ Please implement the following refactors of the code:
 #### Success Criteria
 
 1. A pull request against `master` of your fork for each of the refactors above with:
-    1. Code changes
-    2. Tests covering positive and negative scenarios
+   1. Code changes
+   2. Tests covering positive and negative scenarios
 
 ### Security
 
@@ -109,8 +122,8 @@ Please implement the following security controls for your system:
 #### Success Criteria
 
 1. A pull request against `master` of your fork with:
-    1. Changes to the code
-    2. Tests ensuring the vulnerability is addressed
+   1. Changes to the code
+   2. Tests ensuring the vulnerability is addressed
 
 ### Load Testing
 
@@ -119,6 +132,6 @@ Please implement load testing to ensure your service can handle a high amount of
 #### Success Criteria
 
 1. Implement load testing using `artillery`
-    1. Create a PR against `master` of your fork including artillery
-    2. Ensure that load testing is able to be run using `npm test:load`. You can consider using a tool like `forever` to spin up a daemon and kill it after the load test has completed.
-    3. Test all endpoints under at least `100 rps` for `30s` and ensure that `p99` is under `50ms`
+   1. Create a PR against `master` of your fork including artillery
+   2. Ensure that load testing is able to be run using `npm test:load`. You can consider using a tool like `forever` to spin up a daemon and kill it after the load test has completed.
+   3. Test all endpoints under at least `100 rps` for `30s` and ensure that `p99` is under `50ms`

@@ -9,27 +9,17 @@
   "host": "localhost:8010",
   "basePath": "/",
   "securityDefinitions": {},
-  "schemes": [
-    "http"
-  ],
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/health": {
       "get": {
         "summary": "health-check",
-        "tags": [
-          "health"
-        ],
+        "tags": ["health"],
         "operationId": "health-check",
         "deprecated": false,
-        "produces": [
-          "text/html; charset=utf-8"
-        ],
+        "produces": ["text/html; charset=utf-8"],
         "parameters": [],
         "responses": {
           "200": {
@@ -70,14 +60,10 @@
     "/rides": {
       "post": {
         "summary": "add-rides",
-        "tags": [
-          "rides"
-        ],
+        "tags": ["rides"],
         "operationId": "add-rides",
         "deprecated": false,
-        "produces": [
-          "application/json; charset=utf-8"
-        ],
+        "produces": ["application/json; charset=utf-8"],
         "parameters": [
           {
             "name": "Body",
@@ -179,14 +165,10 @@
       },
       "get": {
         "summary": "get-rides",
-        "tags": [
-          "rides"
-        ],
+        "tags": ["rides"],
         "operationId": "get-rides",
         "deprecated": false,
-        "produces": [
-          "application/json; charset=utf-8"
-        ],
+        "produces": ["application/json; charset=utf-8"],
         "parameters": [
           {
             "name": "page",
@@ -430,14 +412,10 @@
     "/rides/{id}": {
       "get": {
         "summary": "get-ride",
-        "tags": [
-          "rides"
-        ],
+        "tags": ["rides"],
         "operationId": "get-ride",
         "deprecated": false,
-        "produces": [
-          "application/json; charset=utf-8"
-        ],
+        "produces": ["application/json; charset=utf-8"],
         "parameters": [
           {
             "name": "id",
@@ -663,10 +641,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "error_code",
-        "message"
-      ]
+      "required": ["error_code", "message"]
     },
     "Successgettingride": {
       "title": "Successgettingride",
@@ -743,10 +718,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "error_code",
-        "message"
-      ]
+      "required": ["error_code", "message"]
     },
     "Invalidpageparam1": {
       "title": "Invalidpageparam1",
@@ -763,10 +735,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "error_code",
-        "message"
-      ]
+      "required": ["error_code", "message"]
     },
     "Successgettingrideinfo": {
       "title": "Successgettingrideinfo",
@@ -843,10 +812,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "error_code",
-        "message"
-      ]
+      "required": ["error_code", "message"]
     }
   },
   "tags": [
