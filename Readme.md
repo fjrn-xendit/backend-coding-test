@@ -5,6 +5,8 @@
 
 ## Result
 
+Link to repo: https://github.com/fjrn-xendit/backend-coding-test
+
 Below are the exercise results achieved
 
 ### Documentation Result
