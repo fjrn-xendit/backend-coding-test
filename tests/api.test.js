@@ -32,10 +32,10 @@ describe('API tests', () => {
     });
   });
 
-  describe('GET /rides', () => {
+  describe('GET /rides?page=1', () => {
     it('should return rides not found', (done) => {
       request(app)
-          .get('/rides')
+          .get('/rides?page=1')
           .expect('Content-Type', /json/)
           .expect(404, done);
     });
@@ -168,10 +168,10 @@ describe('API tests', () => {
     });
   });
 
-  describe('GET /rides', () => {
+  describe('GET /rides?page=1', () => {
     it('should return rides found', (done) => {
       request(app)
-          .get('/rides')
+          .get('/rides?page=1')
           .expect('Content-Type', /json/)
           .expect(200, done)
           .then((res) => {
@@ -266,6 +266,35 @@ describe('API tests', () => {
           .then((res) => {
             expect(res.body.length).to.deep.equal(2);
           });
+    });
+  });
+
+  describe('GET /rides?page={SQL-INJECT}', () => {
+    it('should return error 400 on SQL injection', (done) => {
+      request(app)
+          .get(`/rides?page=1; DROP TABLE Riders; --`)
+          .expect('Content-Type', /json/)
+          .expect(400, done);
+    });
+  });
+
+  describe('GET /rides/{SQL-INJECT}', () => {
+    it('should return error 400 on SQL injection', (done) => {
+      request(app)
+          .get(`/rides/1; DROP TABLE Riders; --`)
+          .expect('Content-Type', /json/)
+          .expect(400, done);
+    });
+  });
+
+  describe('GET /rides?page=2', () => {
+    it('should return 401 on unauthorized IP', (done) => {
+      app.enable('trust proxy');
+      request(app)
+          .get('/rides?page=2')
+          .set('x-forwarded-for', '251.239.222.165')
+          .expect('Content-Type', /json/)
+          .expect(401, done);
     });
   });
 });

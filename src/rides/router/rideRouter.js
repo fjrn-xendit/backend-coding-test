@@ -7,9 +7,23 @@ const router = express.Router();
 
 router
     .route('/')
-    .post(validator.validateCreateRide, service.createRide)
-    .get(validator.validateGetRides, service.getRides);
+    .post(
+        validator.validateWhitelistedIP,
+        validator.validateCreateRide,
+        service.createRide,
+    )
+    .get(
+        validator.validateWhitelistedIP,
+        validator.validateGetRides,
+        service.getRides,
+    );
 
-router.route('/:id').get(service.getRide);
+router
+    .route('/:id')
+    .get(
+        validator.validateWhitelistedIP,
+        validator.validateGetRide,
+        service.getRide,
+    );
 
 module.exports = router;
