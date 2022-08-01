@@ -11,7 +11,9 @@
     "start": "node ./server/index.js",
     "coverage": "nyc mocha tests --exit && nyc report --reporter=lcov",
     "lint": "eslint .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test:load": "forever start ./server/index.js && artillery run load-test.yml && forever stop 0",
+    "test:load:report": "forever start ./server/index.js && artillery run --output load-test-report.json load-test.yml && artillery report --output load-test-report.html load-test-report.json && forever stop 0"
   },
   "keywords": [
     "Xendit"
@@ -25,9 +27,11 @@
     "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
+    "artillery": "^2.0.0-22",
     "chai": "^4.3.6",
     "eslint": "^8.20.0",
     "eslint-config-google": "^0.14.0",
+    "forever": "^4.0.3",
     "husky": "^8.0.1",
     "mocha": "^9.2.1",
     "nyc": "^15.1.0",

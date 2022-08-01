@@ -1,0 +1,37 @@
+config:
+  target: "http://localhost:8010"
+  ensure:
+    p99: 50
+  phases:
+    - duration: 30
+      arrivalRate: 100
+      name: "100 RPS"
+
+scenarios:
+  - name: "Health check"
+    flow:
+      - get:
+          url: "/health"
+
+  - name: "Create Ride"
+    flow:
+      - post:
+          url: "/rides"
+          json:
+            start_lat: "10"
+            start_long: "10"
+            end_lat: "10"
+            end_long: "10"
+            rider_name: "fajrin"
+            driver_name: "yatno"
+            driver_vehicle: "supraX"
+
+  - name: "Get Ride"
+    flow:
+      - get:
+          url: "/rides/1"
+
+  - name: "Get Rides"
+    flow:
+      - get:
+          url: "/rides?page=1"
