@@ -28,8 +28,18 @@ Implemented these tools:
   - `router` as the router for endpoints
   - `middleware`, example of usage as a request validator
   - `service` for business logic, being called by `router`
-  - `accessor` for external logic such as database or external service
+  - `accessor` for accessing external logic such as database or external service
     - with this, it will be easier in the future if we want to change from SQLite to other RDBMS since all external logic is separated from business logic
+
+![diagram](https://user-images.githubusercontent.com/110280018/182161074-c4caf5a3-8ac0-4d3a-b67c-9380325a4f7c.png)
+
+
+### Security result
+- Validate all input on all API
+- Use query placeholder instead of string formatting for SQL query
+- Test SQL injection input with unit test and ensure we return bad request error
+- Add validation that only whitelisted IPs can access rides API
+- Test reject non whitelisted IP
 
 # Xendit Coding Exercise
 

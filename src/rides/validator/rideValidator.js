@@ -66,7 +66,7 @@ const validateCreateRide = (req, res, next) => {
 const validateGetRides = (req, res, next) => {
   const page = req.query.page || 1;
 
-  if (isNaN(+page) || +page < 1) {
+  if (typeof page !== 'string' || isNaN(+page) || +page < 1) {
     const error = {
       error_code: 'VALIDATION_ERROR',
       message: 'Invalid page number',
@@ -78,5 +78,36 @@ const validateGetRides = (req, res, next) => {
   next();
 };
 
+const validateGetRide = (req, res, next) => {
+  const rideID = req.params.id;
+  if (typeof rideID !== 'string' || isNaN(+rideID) || +rideID < 1) {
+    const error = {
+      error_code: 'VALIDATION_ERROR',
+      message: 'Invalid ride ID',
+    };
+    logger.warn(`Invalid ride ID ${rideID}`);
+    return res.status(400).send(error);
+  }
+
+  next();
+};
+
+const validateWhitelistedIP = (req, res, next) => {
+  const validIPs = ['127.0.0.1', '::ffff:127.0.0.1', '::1'];
+  const ip = req.ip;
+  if (!validIPs.includes(ip)) {
+    const error = {
+      error_code: 'VALIDATION_ERROR',
+      message: 'Unauthorized',
+    };
+    logger.warn(`unauthorized access from ${ip}`);
+    return res.status(401).send(error);
+  }
+
+  next();
+};
+
 module.exports.validateCreateRide = validateCreateRide;
 module.exports.validateGetRides = validateGetRides;
+module.exports.validateGetRide = validateGetRide;
+module.exports.validateWhitelistedIP = validateWhitelistedIP;
